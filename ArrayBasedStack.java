@@ -16,12 +16,14 @@ public class ArrayBasedStack<T> implements StackInterface<T> {
       this.capacity = capacity;
       topOfStack = -1;
       initialized = true;
+      data = new (T[])Object[capacity];
    } 
    
    public ArrayBasedStack() {
       this.capacity = INITIAL_CAPACITY;
       topOfStack = -1;
       initialized = true;
+      data = new (T[])Object[capacity];
    }
    
    private void expandArray() {
@@ -30,8 +32,8 @@ public class ArrayBasedStack<T> implements StackInterface<T> {
    
    public void push(T value) {
       if(topOfStack < this.capacity) {
-         data[topOfStack] = value;
          topOfStack++;
+         data[topOfStack] = value;
       } else {
          expandArray();
       }
